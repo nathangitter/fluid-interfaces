@@ -15,6 +15,14 @@
 		D8976AB220F2B2FA00E148CB /* Interface.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8976AB120F2B2FA00E148CB /* Interface.swift */; };
 		D8976AB420F2B3A400E148CB /* InterfaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8976AB320F2B3A400E148CB /* InterfaceViewController.swift */; };
 		D8976AB620F2B3D900E148CB /* CalculatorButtonInterfaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8976AB520F2B3D900E148CB /* CalculatorButtonInterfaceViewController.swift */; };
+		D8976AB820F2D38E00E148CB /* FlashlightButtonInterfaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8976AB720F2D38E00E148CB /* FlashlightButtonInterfaceViewController.swift */; };
+		D8976ABA20F2D3B500E148CB /* RubberbandingInterfaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8976AB920F2D3B500E148CB /* RubberbandingInterfaceViewController.swift */; };
+		D8976ABC20F2D3DC00E148CB /* SpringInterfaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8976ABB20F2D3DC00E148CB /* SpringInterfaceViewController.swift */; };
+		D8976ABE20F2D3FA00E148CB /* AccelerationInterfaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8976ABD20F2D3FA00E148CB /* AccelerationInterfaceViewController.swift */; };
+		D8976AC020F2D42200E148CB /* MomentumInterfaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8976ABF20F2D42200E148CB /* MomentumInterfaceViewController.swift */; };
+		D8976AC220F2D44C00E148CB /* PIPInterfaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8976AC120F2D44C00E148CB /* PIPInterfaceViewController.swift */; };
+		D8976AC420F2D46B00E148CB /* AppInterfaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8976AC320F2D46B00E148CB /* AppInterfaceViewController.swift */; };
+		D8976AC620F2D48800E148CB /* RotationInterfaceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8976AC520F2D48800E148CB /* RotationInterfaceViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +36,14 @@
 		D8976AB120F2B2FA00E148CB /* Interface.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Interface.swift; sourceTree = "<group>"; };
 		D8976AB320F2B3A400E148CB /* InterfaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceViewController.swift; sourceTree = "<group>"; };
 		D8976AB520F2B3D900E148CB /* CalculatorButtonInterfaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculatorButtonInterfaceViewController.swift; sourceTree = "<group>"; };
+		D8976AB720F2D38E00E148CB /* FlashlightButtonInterfaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlashlightButtonInterfaceViewController.swift; sourceTree = "<group>"; };
+		D8976AB920F2D3B500E148CB /* RubberbandingInterfaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RubberbandingInterfaceViewController.swift; sourceTree = "<group>"; };
+		D8976ABB20F2D3DC00E148CB /* SpringInterfaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpringInterfaceViewController.swift; sourceTree = "<group>"; };
+		D8976ABD20F2D3FA00E148CB /* AccelerationInterfaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccelerationInterfaceViewController.swift; sourceTree = "<group>"; };
+		D8976ABF20F2D42200E148CB /* MomentumInterfaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MomentumInterfaceViewController.swift; sourceTree = "<group>"; };
+		D8976AC120F2D44C00E148CB /* PIPInterfaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PIPInterfaceViewController.swift; sourceTree = "<group>"; };
+		D8976AC320F2D46B00E148CB /* AppInterfaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppInterfaceViewController.swift; sourceTree = "<group>"; };
+		D8976AC520F2D48800E148CB /* RotationInterfaceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RotationInterfaceViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +79,15 @@
 				D8757E7120F124BD00D7EB4E /* AppDelegate.swift */,
 				D8976AB120F2B2FA00E148CB /* Interface.swift */,
 				D8976AB320F2B3A400E148CB /* InterfaceViewController.swift */,
+				D8976ABB20F2D3DC00E148CB /* SpringInterfaceViewController.swift */,
+				D8976AB920F2D3B500E148CB /* RubberbandingInterfaceViewController.swift */,
 				D8976AB520F2B3D900E148CB /* CalculatorButtonInterfaceViewController.swift */,
+				D8976ABD20F2D3FA00E148CB /* AccelerationInterfaceViewController.swift */,
+				D8976AB720F2D38E00E148CB /* FlashlightButtonInterfaceViewController.swift */,
+				D8976ABF20F2D42200E148CB /* MomentumInterfaceViewController.swift */,
+				D8976AC120F2D44C00E148CB /* PIPInterfaceViewController.swift */,
+				D8976AC520F2D48800E148CB /* RotationInterfaceViewController.swift */,
+				D8976AC320F2D46B00E148CB /* AppInterfaceViewController.swift */,
 				D8757E7320F124BD00D7EB4E /* MenuViewController.swift */,
 				D8757E7520F124BD00D7EB4E /* Main.storyboard */,
 				D8757E7820F124BF00D7EB4E /* Assets.xcassets */,
@@ -145,10 +169,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8976AB420F2B3A400E148CB /* InterfaceViewController.swift in Sources */,
+				D8976ABC20F2D3DC00E148CB /* SpringInterfaceViewController.swift in Sources */,
 				D8757E7420F124BD00D7EB4E /* MenuViewController.swift in Sources */,
+				D8976AB820F2D38E00E148CB /* FlashlightButtonInterfaceViewController.swift in Sources */,
+				D8976AC420F2D46B00E148CB /* AppInterfaceViewController.swift in Sources */,
 				D8757E7220F124BD00D7EB4E /* AppDelegate.swift in Sources */,
+				D8976ABE20F2D3FA00E148CB /* AccelerationInterfaceViewController.swift in Sources */,
+				D8976AC020F2D42200E148CB /* MomentumInterfaceViewController.swift in Sources */,
+				D8976AC620F2D48800E148CB /* RotationInterfaceViewController.swift in Sources */,
 				D8976AB220F2B2FA00E148CB /* Interface.swift in Sources */,
 				D8976AB620F2B3D900E148CB /* CalculatorButtonInterfaceViewController.swift in Sources */,
+				D8976AC220F2D44C00E148CB /* PIPInterfaceViewController.swift in Sources */,
+				D8976ABA20F2D3B500E148CB /* RubberbandingInterfaceViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
