@@ -10,22 +10,29 @@ import UIKit
 
 class MenuViewController: UIViewController {
     
-    private let interfaces: [Interface] = [
-        Interface(name: "Calculator button", icon: #imageLiteral(resourceName: "iconCalc")),
-        Interface(name: "Calculator button", icon: #imageLiteral(resourceName: "iconCalc")),
-        Interface(name: "Calculator button", icon: #imageLiteral(resourceName: "iconCalc")),
-        Interface(name: "Calculator button", icon: #imageLiteral(resourceName: "iconCalc")),
-        Interface(name: "Calculator button", icon: #imageLiteral(resourceName: "iconCalc")),
-    ]
+    private let interfaces = Interface.all
     
     @IBOutlet private weak var collectionView: UICollectionView!
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        collectionView.visibleCells.forEach {
+            $0.isHighlighted = false
+        }
+        
+    }
 
 }
 
 extension MenuViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print("selected")
+        collectionView.cellForItem(at: indexPath)?.isHighlighted = true
+        let interface = interfaces[indexPath.item]
+        let viewController = interface.type.init()
+        viewController.title = interface.name
+        navigationController?.pushViewController(viewController, animated: true)
     }
     
 }
@@ -54,11 +61,6 @@ extension MenuViewController: UICollectionViewDelegateFlowLayout {
     
 }
 
-struct Interface {
-    var name: String
-    var icon: UIImage
-}
-
 class InterfaceCell: UICollectionViewCell {
     
     public static let identifier = "interfaceCell"
@@ -77,6 +79,26 @@ class InterfaceCell: UICollectionViewCell {
     
     @IBOutlet private weak var imageView: UIImageView!
     @IBOutlet private weak var titleLabel: UILabel!
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        sharedInit()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        sharedInit()
+    }
+    
+    private func sharedInit() {
+        backgroundColor = UIColor.white.withAlphaComponent(0.1)
+    }
+    
+    override var isHighlighted: Bool {
+        didSet {
+            backgroundColor = UIColor.white.withAlphaComponent(isHighlighted ? 0.2 : 0.1)
+        }
+    }
     
 }
 
