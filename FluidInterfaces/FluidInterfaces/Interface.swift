@@ -18,11 +18,15 @@ extension Interface {
     
     public static var all: [Interface] {
         return [
-            Interface(name: "Calculator button", icon: #imageLiteral(resourceName: "iconCalc"), type: CalculatorButtonInterfaceViewController.self),
-            Interface(name: "Calculator button", icon: #imageLiteral(resourceName: "iconCalc"), type: CalculatorButtonInterfaceViewController.self),
-            Interface(name: "Calculator button", icon: #imageLiteral(resourceName: "iconCalc"), type: CalculatorButtonInterfaceViewController.self),
-            Interface(name: "Calculator button", icon: #imageLiteral(resourceName: "iconCalc"), type: CalculatorButtonInterfaceViewController.self),
-            Interface(name: "Calculator button", icon: #imageLiteral(resourceName: "iconCalc"), type: CalculatorButtonInterfaceViewController.self),
+            Interface(name: "Spring animations", icon: #imageLiteral(resourceName: "icon_spring"), type: CalculatorButtonInterfaceViewController.self),
+            Interface(name: "Rubberbanding", icon: #imageLiteral(resourceName: "icon_rubber"), type: CalculatorButtonInterfaceViewController.self),
+            Interface(name: "Calculator button", icon: #imageLiteral(resourceName: "icon_calc"), type: CalculatorButtonInterfaceViewController.self),
+            Interface(name: "Acceleration pausing", icon: #imageLiteral(resourceName: "icon_acceleration"), type: CalculatorButtonInterfaceViewController.self),
+            Interface(name: "Flashlight button", icon: #imageLiteral(resourceName: "icon_flash"), type: CalculatorButtonInterfaceViewController.self),
+            Interface(name: "Rewarding momentum", icon: #imageLiteral(resourceName: "icon_momentum"), type: CalculatorButtonInterfaceViewController.self),
+            Interface(name: "FaceTime PiP", icon: #imageLiteral(resourceName: "icon_pip"), type: CalculatorButtonInterfaceViewController.self),
+            Interface(name: "Scaling and rotation", icon: #imageLiteral(resourceName: "icon_rotation"), type: CalculatorButtonInterfaceViewController.self),
+            Interface(name: "Springboard", icon: #imageLiteral(resourceName: "icon_springboard"), type: CalculatorButtonInterfaceViewController.self),
         ]
     }
     
