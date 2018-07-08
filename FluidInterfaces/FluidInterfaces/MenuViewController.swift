@@ -10,20 +10,73 @@ import UIKit
 
 class MenuViewController: UIViewController {
     
-    @IBOutlet weak var collectionView: UICollectionView!
+    private let interfaces: [Interface] = [
+        Interface(name: "Calculator button", icon: #imageLiteral(resourceName: "iconCalc")),
+        Interface(name: "Calculator button", icon: #imageLiteral(resourceName: "iconCalc")),
+        Interface(name: "Calculator button", icon: #imageLiteral(resourceName: "iconCalc")),
+        Interface(name: "Calculator button", icon: #imageLiteral(resourceName: "iconCalc")),
+        Interface(name: "Calculator button", icon: #imageLiteral(resourceName: "iconCalc")),
+    ]
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        //
-        
-    }
+    @IBOutlet private weak var collectionView: UICollectionView!
 
+}
+
+extension MenuViewController: UICollectionViewDelegate {
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        print("selected")
+    }
+    
+}
+
+extension MenuViewController: UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return interfaces.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: InterfaceCell.identifier, for: indexPath) as? InterfaceCell else { return UICollectionViewCell() }
+        let interface = interfaces[indexPath.item]
+        cell.title = interface.name
+        cell.image = interface.icon
+        return cell
+    }
+    
+}
+
+extension MenuViewController: UICollectionViewDelegateFlowLayout {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.bounds.width, height: 60)
+    }
+    
+}
+
+struct Interface {
+    var name: String
+    var icon: UIImage
 }
 
 class InterfaceCell: UICollectionViewCell {
     
-    //
+    public static let identifier = "interfaceCell"
+    
+    public var title = "" {
+        didSet {
+            titleLabel.text = title
+        }
+    }
+    
+    public var image = UIImage() {
+        didSet {
+            imageView.image = image
+        }
+    }
+    
+    @IBOutlet private weak var imageView: UIImageView!
+    @IBOutlet private weak var titleLabel: UILabel!
     
 }
 
