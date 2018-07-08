@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  MenuViewController.swift
 //  FluidInterfaces
 //
 //  Created by Nathan Gitter on 7/7/18.
@@ -8,8 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class MenuViewController: UIViewController {
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -17,6 +19,12 @@ class ViewController: UIViewController {
         
     }
 
+}
+
+class InterfaceCell: UICollectionViewCell {
+    
+    //
+    
 }
 
 ///// Distance traveled after decelerating to zero velocity at a constant rate.
