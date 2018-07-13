@@ -13,3 +13,9 @@ class FlashlightButtonInterfaceViewController: InterfaceViewController {
     //
     
 }
+
+class FlashlightButton: UIControl {
+    
+    //
+    
+}
