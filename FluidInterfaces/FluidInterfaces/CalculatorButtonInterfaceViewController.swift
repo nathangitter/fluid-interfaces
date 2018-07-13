@@ -42,6 +42,11 @@ class CalculatorButton: UIControl {
         return label
     }()
     
+    private var animator = UIViewPropertyAnimator()
+    
+    private let normalColor = UIColor(hex: 0x333333)
+    private let highlightedColor = UIColor(hex: 0x737373)
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         sharedInit()
@@ -53,9 +58,15 @@ class CalculatorButton: UIControl {
     }
     
     private func sharedInit() {
-        backgroundColor = UIColor(hex: 0x333333)
+        
+        backgroundColor = normalColor
+        
+        addTarget(self, action: #selector(touchDown), for: [.touchDown, .touchDragEnter])
+        addTarget(self, action: #selector(touchUp), for: [.touchUpInside, .touchDragExit, .touchCancel])
+        
         addSubview(label)
         label.center(in: self)
+        
     }
     
     override var intrinsicContentSize: CGSize {
@@ -65,6 +76,18 @@ class CalculatorButton: UIControl {
     override func layoutSubviews() {
         super.layoutSubviews()
         layer.cornerRadius = bounds.width / 2
+    }
+    
+    @objc private func touchDown() {
+        animator.stopAnimation(true)
+        backgroundColor = highlightedColor
+    }
+    
+    @objc private func touchUp() {
+        animator = UIViewPropertyAnimator(duration: 0.5, curve: .easeOut, animations: {
+            self.backgroundColor = self.normalColor
+        })
+        animator.startAnimation()
     }
     
 }
