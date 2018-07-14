@@ -39,7 +39,7 @@ class FlashlightButton: UIControl {
     
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
-        //
+        imageView.image = offImage
         return imageView
     }()
     
@@ -52,12 +52,16 @@ class FlashlightButton: UIControl {
     private let minWidth: CGFloat = 50
     private let maxWidth: CGFloat = 92
     
-    private let offAlpha: CGFloat = 0.3
-    private let onAlpha: CGFloat = 0.9
+    private let offColor = UIColor(white: 0.2, alpha: 1)
+    private let onColor = UIColor(white: 0.95, alpha: 1)
     
-    private let activationForce: CGFloat = 0.6
-    private let confirmationForce: CGFloat = 0.58
-    private let resetForce: CGFloat = 0.2
+    // todo vectorize these and tint the imageview instead of swithcing images
+    private let onImage = #imageLiteral(resourceName: "flashlight_on")
+    private let offImage = #imageLiteral(resourceName: "flashlight_off")
+    
+    private let activationForce: CGFloat = 0.5
+    private let confirmationForce: CGFloat = 0.49
+    private let resetForce: CGFloat = 0.4
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -71,11 +75,10 @@ class FlashlightButton: UIControl {
     
     private func sharedInit() {
         
-        backgroundColor = .white
-        alpha = offAlpha
+        backgroundColor = offColor
         
         addSubview(imageView)
-        imageView.center(in: self)
+        imageView.pin(to: self)
         
     }
     
@@ -90,20 +93,35 @@ class FlashlightButton: UIControl {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
-        
-        //
-        
+        touchMoved(touch: touches.first)
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesMoved(touches, with: event)
+        touchMoved(touch: touches.first)
+    }
+    
+    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesEnded(touches, with: event)
+        touchEnded(touch: touches.first)
+    }
+    
+    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
+        super.touchesCancelled(touches, with: event)
+        touchEnded(touch: touches.first)
+    }
+    
+    private func touchMoved(touch: UITouch?) {
         
-        guard let firstTouch = touches.first else { return }
+        guard let touch = touch else { return }
         
-        let force = firstTouch.force / firstTouch.maximumPossibleForce
+        // todo if touch is far outside bounds, cancel touch
+        
+        let force = touch.force / touch.maximumPossibleForce
         let scale = 1 + (maxWidth / minWidth - 1) * force
         
         transform = CGAffineTransform(scaleX: scale, y: scale)
+        // todo also change color when isOn = false
         
         switch forceState {
         case .reset:
@@ -114,35 +132,30 @@ class FlashlightButton: UIControl {
         case .activated:
             if force <= confirmationForce {
                 forceState = .confirmed
-                // change image here
                 isOn.toggle()
-                alpha = isOn ? onAlpha : offAlpha
+                imageView.image = isOn ? onImage : offImage
+                backgroundColor = isOn ? onColor : offColor
                 confirmationFeedbackGenerator.impactOccurred()
             }
         case .confirmed:
-            ()
+            if force <= resetForce {
+                forceState = .reset
+            }
         }
         
     }
     
-    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesEnded(touches, with: event)
-        touchesEnded(touch: touches.first)
-    }
-    
-    override func touchesCancelled(_ touches: Set<UITouch>, with event: UIEvent?) {
-        super.touchesCancelled(touches, with: event)
-        touchesEnded(touch: touches.first)
-    }
-    
-    private func touchesEnded(touch: UITouch?) {
+    private func touchEnded(touch: UITouch?) {
         forceState = .reset
         animateToRest()
     }
     
     private func animateToRest() {
-        // todo animate this with a little springiness
-        transform = CGAffineTransform(scaleX: 1, y: 1)
+        let animator = UIViewPropertyAnimator(duration: 0.6, dampingRatio: 0.3, animations: {
+            self.transform = CGAffineTransform(scaleX: 1, y: 1)
+        })
+        animator.isInterruptible = true
+        animator.startAnimation()
     }
     
 }
