@@ -118,8 +118,12 @@ class FlashlightButton: UIControl {
         guard let touch = touch else { return }
         guard !touchExited else { return }
         
-        guard touch.location(in: self).distance(to: CGPoint(x: bounds.midX, y: bounds.midY)) < 80 else {
+        let cancelDistance: CGFloat = minWidth / 2 + 20
+        guard touch.location(in: self).distance(to: CGPoint(x: bounds.midX, y: bounds.midY)) < cancelDistance else {
             touchExited = true
+            if forceState == .activated {
+                activate()
+            }
             forceState = .reset
             animateToRest()
             return
@@ -140,11 +144,7 @@ class FlashlightButton: UIControl {
         case .activated:
             if force <= confirmationForce {
                 forceState = .confirmed
-                isOn.toggle()
-                imageView.image = isOn ? onImage : offImage
-                imageView.tintColor = isOn ? .black : .white
-                backgroundColor = isOn ? onColor : offColor
-                confirmationFeedbackGenerator.impactOccurred()
+                activate()
             }
         case .confirmed:
             if force <= resetForce {
@@ -158,6 +158,14 @@ class FlashlightButton: UIControl {
         guard !touchExited else { return }
         forceState = .reset
         animateToRest()
+    }
+    
+    private func activate() {
+        isOn.toggle()
+        imageView.image = isOn ? onImage : offImage
+        imageView.tintColor = isOn ? .black : .white
+        backgroundColor = isOn ? onColor : offColor
+        confirmationFeedbackGenerator.impactOccurred()
     }
     
     private func animateToRest() {
