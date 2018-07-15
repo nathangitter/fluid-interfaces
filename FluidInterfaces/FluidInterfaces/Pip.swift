@@ -1,5 +1,5 @@
 //
-//  PIP.swift
+//  Pip.swift
 //  FluidInterfaces
 //
 //  Created by Nathan Gitter on 7/8/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PIPInterfaceViewController: InterfaceViewController {
+class PipInterfaceViewController: InterfaceViewController {
     
     private lazy var pipView: GradientView = {
         let view = GradientView()
@@ -17,7 +17,7 @@ class PIPInterfaceViewController: InterfaceViewController {
         return view
     }()
     
-    private var pipPositionViews = [PIPPositionView]()
+    private var pipPositionViews = [PipPositionView]()
     
     private let panRecognizer = UIPanGestureRecognizer()
     
@@ -34,19 +34,19 @@ class PIPInterfaceViewController: InterfaceViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let topLeftView = addPIPPositionView()
+        let topLeftView = addPipPositionView()
         topLeftView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: horizontalSpacing).isActive = true
         topLeftView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: verticalSpacing).isActive = true
         
-        let topRightView = addPIPPositionView()
+        let topRightView = addPipPositionView()
         topRightView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -horizontalSpacing).isActive = true
         topRightView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: verticalSpacing).isActive = true
         
-        let bottomLeftView = addPIPPositionView()
+        let bottomLeftView = addPipPositionView()
         bottomLeftView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: horizontalSpacing).isActive = true
         bottomLeftView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -verticalSpacing).isActive = true
         
-        let bottomRightView = addPIPPositionView()
+        let bottomRightView = addPipPositionView()
         bottomRightView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -horizontalSpacing).isActive = true
         bottomRightView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -verticalSpacing).isActive = true
         
@@ -62,8 +62,8 @@ class PIPInterfaceViewController: InterfaceViewController {
         pipView.center = pipPositions.last ?? .zero
     }
     
-    private func addPIPPositionView() -> PIPPositionView {
-        let view = PIPPositionView()
+    private func addPipPositionView() -> PipPositionView {
+        let view = PipPositionView()
         self.view.addSubview(view)
         pipPositionViews.append(view)
         view.translatesAutoresizingMaskIntoConstraints = false
@@ -74,7 +74,7 @@ class PIPInterfaceViewController: InterfaceViewController {
     
 }
 
-class PIPPositionView: UIView {
+class PipPositionView: UIView {
     
     private lazy var shapeLayer: CAShapeLayer = {
         let layer = CAShapeLayer()

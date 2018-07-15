@@ -24,7 +24,7 @@
 		D8976ABC20F2D3DC00E148CB /* Spring.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8976ABB20F2D3DC00E148CB /* Spring.swift */; };
 		D8976ABE20F2D3FA00E148CB /* Acceleration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8976ABD20F2D3FA00E148CB /* Acceleration.swift */; };
 		D8976AC020F2D42200E148CB /* Momentum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8976ABF20F2D42200E148CB /* Momentum.swift */; };
-		D8976AC220F2D44C00E148CB /* PIP.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8976AC120F2D44C00E148CB /* PIP.swift */; };
+		D8976AC220F2D44C00E148CB /* Pip.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8976AC120F2D44C00E148CB /* Pip.swift */; };
 		D8976AC420F2D46B00E148CB /* Springboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8976AC320F2D46B00E148CB /* Springboard.swift */; };
 		D8976AC620F2D48800E148CB /* Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8976AC520F2D48800E148CB /* Rotation.swift */; };
 /* End PBXBuildFile section */
@@ -49,7 +49,7 @@
 		D8976ABB20F2D3DC00E148CB /* Spring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spring.swift; sourceTree = "<group>"; };
 		D8976ABD20F2D3FA00E148CB /* Acceleration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Acceleration.swift; sourceTree = "<group>"; };
 		D8976ABF20F2D42200E148CB /* Momentum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Momentum.swift; sourceTree = "<group>"; };
-		D8976AC120F2D44C00E148CB /* PIP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PIP.swift; sourceTree = "<group>"; };
+		D8976AC120F2D44C00E148CB /* Pip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pip.swift; sourceTree = "<group>"; };
 		D8976AC320F2D46B00E148CB /* Springboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Springboard.swift; sourceTree = "<group>"; };
 		D8976AC520F2D48800E148CB /* Rotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -94,7 +94,7 @@
 				D8976ABD20F2D3FA00E148CB /* Acceleration.swift */,
 				D8976AB720F2D38E00E148CB /* FlashlightButton.swift */,
 				D8976ABF20F2D42200E148CB /* Momentum.swift */,
-				D8976AC120F2D44C00E148CB /* PIP.swift */,
+				D8976AC120F2D44C00E148CB /* Pip.swift */,
 				D8976AC520F2D48800E148CB /* Rotation.swift */,
 				D8976AC320F2D46B00E148CB /* Springboard.swift */,
 				D8409D0B20FC010B00C7DCD2 /* GradientView.swift */,
@@ -195,7 +195,7 @@
 				D8976AC620F2D48800E148CB /* Rotation.swift in Sources */,
 				D8976AB220F2B2FA00E148CB /* Interface.swift in Sources */,
 				D8976AB620F2B3D900E148CB /* CalculatorButton.swift in Sources */,
-				D8976AC220F2D44C00E148CB /* PIP.swift in Sources */,
+				D8976AC220F2D44C00E148CB /* Pip.swift in Sources */,
 				D8976ABA20F2D3B500E148CB /* Rubberbanding.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
