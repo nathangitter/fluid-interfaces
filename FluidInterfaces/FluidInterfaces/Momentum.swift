@@ -1,5 +1,5 @@
 //
-//  AccelerationInterfaceViewController.swift
+//  Momentum.swift
 //  FluidInterfaces
 //
 //  Created by Nathan Gitter on 7/8/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AccelerationInterfaceViewController: InterfaceViewController {
+class MomentumInterfaceViewController: InterfaceViewController {
     
     //
     

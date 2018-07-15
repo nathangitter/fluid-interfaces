@@ -1,5 +1,5 @@
 //
-//  RubberbandingInterfaceViewController.swift
+//  PIP.swift
 //  FluidInterfaces
 //
 //  Created by Nathan Gitter on 7/8/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RubberbandingInterfaceViewController: InterfaceViewController {
+class PIPInterfaceViewController: InterfaceViewController {
     
     //
     

@@ -1,5 +1,5 @@
 //
-//  SpringInterfaceViewController.swift
+//  Rubberbanding.swift
 //  FluidInterfaces
 //
 //  Created by Nathan Gitter on 7/8/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SpringInterfaceViewController: InterfaceViewController {
+class RubberbandingInterfaceViewController: InterfaceViewController {
     
     //
     

@@ -1,5 +1,5 @@
 //
-//  FlashlightButtonInterfaceViewController.swift
+//  FlashlightButton.swift
 //  FluidInterfaces
 //
 //  Created by Nathan Gitter on 7/8/18.

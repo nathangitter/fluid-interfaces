@@ -1,5 +1,5 @@
 //
-//  AppInterfaceViewController.swift
+//  Spring.swift
 //  FluidInterfaces
 //
 //  Created by Nathan Gitter on 7/8/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class AppInterfaceViewController: InterfaceViewController {
+class SpringInterfaceViewController: InterfaceViewController {
     
     //
     

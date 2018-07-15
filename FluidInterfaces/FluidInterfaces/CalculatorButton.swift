@@ -1,5 +1,5 @@
 //
-//  CalculatorButtonInterfaceViewController.swift
+//  CalculatorButton.swift
 //  FluidInterfaces
 //
 //  Created by Nathan Gitter on 7/8/18.

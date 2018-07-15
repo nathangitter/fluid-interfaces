@@ -1,5 +1,5 @@
 //
-//  PIPInterfaceViewController.swift
+//  Acceleration.swift
 //  FluidInterfaces
 //
 //  Created by Nathan Gitter on 7/8/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class PIPInterfaceViewController: InterfaceViewController {
+class AccelerationInterfaceViewController: InterfaceViewController {
     
     //
     

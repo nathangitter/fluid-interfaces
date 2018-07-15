@@ -1,5 +1,5 @@
 //
-//  MomentumInterfaceViewController.swift
+//  Springboard.swift
 //  FluidInterfaces
 //
 //  Created by Nathan Gitter on 7/8/18.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MomentumInterfaceViewController: InterfaceViewController {
+class SpringboardInterfaceViewController: InterfaceViewController {
     
     //
     

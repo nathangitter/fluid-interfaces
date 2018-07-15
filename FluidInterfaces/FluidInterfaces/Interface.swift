@@ -26,7 +26,7 @@ extension Interface {
             Interface(name: "Rewarding momentum", icon: #imageLiteral(resourceName: "icon_momentum"), type: MomentumInterfaceViewController.self),
             Interface(name: "FaceTime PiP", icon: #imageLiteral(resourceName: "icon_pip"), type: PIPInterfaceViewController.self),
             Interface(name: "Scaling and rotation", icon: #imageLiteral(resourceName: "icon_rotation"), type: RotationInterfaceViewController.self),
-            Interface(name: "Springboard", icon: #imageLiteral(resourceName: "icon_springboard"), type: AppInterfaceViewController.self),
+            Interface(name: "Springboard", icon: #imageLiteral(resourceName: "icon_springboard"), type: SpringboardInterfaceViewController.self),
         ]
     }
     
