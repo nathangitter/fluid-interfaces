@@ -40,11 +40,13 @@ class FlashlightButton: UIControl {
     private lazy var imageView: UIImageView = {
         let imageView = UIImageView()
         imageView.image = offImage
+        imageView.tintColor = .white
         return imageView
     }()
     
-    private var isOn: Bool = false
+    private var isOn = false
     private var forceState: ForceState = .reset
+    private var touchExited = false
     
     private let activationFeedbackGenerator = UIImpactFeedbackGenerator(style: .light)
     private let confirmationFeedbackGenerator = UIImpactFeedbackGenerator(style: .medium)
@@ -55,7 +57,6 @@ class FlashlightButton: UIControl {
     private let offColor = UIColor(white: 0.2, alpha: 1)
     private let onColor = UIColor(white: 0.95, alpha: 1)
     
-    // todo vectorize these and tint the imageview instead of swithcing images
     private let onImage = #imageLiteral(resourceName: "flashlight_on")
     private let offImage = #imageLiteral(resourceName: "flashlight_off")
     
@@ -93,6 +94,7 @@ class FlashlightButton: UIControl {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         super.touchesBegan(touches, with: event)
+        touchExited = false
         touchMoved(touch: touches.first)
     }
     
@@ -114,14 +116,20 @@ class FlashlightButton: UIControl {
     private func touchMoved(touch: UITouch?) {
         
         guard let touch = touch else { return }
+        guard !touchExited else { return }
         
-        // todo if touch is far outside bounds, cancel touch
+        guard touch.location(in: self).distance(to: CGPoint(x: bounds.midX, y: bounds.midY)) < 80 else {
+            touchExited = true
+            forceState = .reset
+            animateToRest()
+            return
+        }
         
         let force = touch.force / touch.maximumPossibleForce
         let scale = 1 + (maxWidth / minWidth - 1) * force
         
         transform = CGAffineTransform(scaleX: scale, y: scale)
-        // todo also change color when isOn = false
+        if !isOn { backgroundColor = UIColor(white: 0.2 - force * 0.2, alpha: 1) }
         
         switch forceState {
         case .reset:
@@ -134,6 +142,7 @@ class FlashlightButton: UIControl {
                 forceState = .confirmed
                 isOn.toggle()
                 imageView.image = isOn ? onImage : offImage
+                imageView.tintColor = isOn ? .black : .white
                 backgroundColor = isOn ? onColor : offColor
                 confirmationFeedbackGenerator.impactOccurred()
             }
@@ -146,6 +155,7 @@ class FlashlightButton: UIControl {
     }
     
     private func touchEnded(touch: UITouch?) {
+        guard !touchExited else { return }
         forceState = .reset
         animateToRest()
     }
@@ -153,6 +163,7 @@ class FlashlightButton: UIControl {
     private func animateToRest() {
         let animator = UIViewPropertyAnimator(duration: 0.6, dampingRatio: 0.3, animations: {
             self.transform = CGAffineTransform(scaleX: 1, y: 1)
+            self.backgroundColor = self.isOn ? self.onColor : self.offColor
         })
         animator.isInterruptible = true
         animator.startAnimation()

@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		D806B89020F8275600740219 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D806B88F20F8275600740219 /* UIColorExtensions.swift */; };
 		D806B89220F82A3700740219 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D806B89120F82A3700740219 /* UIViewExtensions.swift */; };
+		D8409D0A20FBDA8100C7DCD2 /* CGPointExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8409D0920FBDA8100C7DCD2 /* CGPointExtensions.swift */; };
 		D8757E7220F124BD00D7EB4E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8757E7120F124BD00D7EB4E /* AppDelegate.swift */; };
 		D8757E7420F124BD00D7EB4E /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8757E7320F124BD00D7EB4E /* MenuViewController.swift */; };
 		D8757E7720F124BD00D7EB4E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8757E7520F124BD00D7EB4E /* Main.storyboard */; };
@@ -30,6 +31,7 @@
 /* Begin PBXFileReference section */
 		D806B88F20F8275600740219 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		D806B89120F82A3700740219 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
+		D8409D0920FBDA8100C7DCD2 /* CGPointExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointExtensions.swift; sourceTree = "<group>"; };
 		D8757E6E20F124BD00D7EB4E /* FluidInterfaces.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FluidInterfaces.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8757E7120F124BD00D7EB4E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8757E7320F124BD00D7EB4E /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +97,7 @@
 				D8976AC320F2D46B00E148CB /* AppInterfaceViewController.swift */,
 				D806B89120F82A3700740219 /* UIViewExtensions.swift */,
 				D806B88F20F8275600740219 /* UIColorExtensions.swift */,
+				D8409D0920FBDA8100C7DCD2 /* CGPointExtensions.swift */,
 				D8757E7520F124BD00D7EB4E /* Main.storyboard */,
 				D8757E7820F124BF00D7EB4E /* Assets.xcassets */,
 				D8757E7A20F124BF00D7EB4E /* LaunchScreen.storyboard */,
@@ -180,6 +183,7 @@
 				D8976ABC20F2D3DC00E148CB /* SpringInterfaceViewController.swift in Sources */,
 				D8757E7420F124BD00D7EB4E /* MenuViewController.swift in Sources */,
 				D8976AB820F2D38E00E148CB /* FlashlightButtonInterfaceViewController.swift in Sources */,
+				D8409D0A20FBDA8100C7DCD2 /* CGPointExtensions.swift in Sources */,
 				D8976AC420F2D46B00E148CB /* AppInterfaceViewController.swift in Sources */,
 				D8757E7220F124BD00D7EB4E /* AppDelegate.swift in Sources */,
 				D8976ABE20F2D3FA00E148CB /* AccelerationInterfaceViewController.swift in Sources */,
