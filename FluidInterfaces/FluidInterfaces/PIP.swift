@@ -17,11 +17,90 @@ class PIPInterfaceViewController: InterfaceViewController {
         return view
     }()
     
+    private var pipPositionViews = [PIPPositionView]()
+    
+    private let panRecognizer = UIPanGestureRecognizer()
+    
+    private var pipPositions: [CGPoint] {
+        return pipPositionViews.map { $0.center }
+    }
+    
+    private let pipWidth: CGFloat = 86
+    private let pipHeight: CGFloat = 130
+    
+    private let horizontalSpacing: CGFloat = 23
+    private let verticalSpacing: CGFloat = 25
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        //
+        let topLeftView = addPIPPositionView()
+        topLeftView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: horizontalSpacing).isActive = true
+        topLeftView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: verticalSpacing).isActive = true
         
+        let topRightView = addPIPPositionView()
+        topRightView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -horizontalSpacing).isActive = true
+        topRightView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: verticalSpacing).isActive = true
+        
+        let bottomLeftView = addPIPPositionView()
+        bottomLeftView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: horizontalSpacing).isActive = true
+        bottomLeftView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -verticalSpacing).isActive = true
+        
+        let bottomRightView = addPIPPositionView()
+        bottomRightView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -horizontalSpacing).isActive = true
+        bottomRightView.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -verticalSpacing).isActive = true
+        
+        view.addSubview(pipView)
+        pipView.translatesAutoresizingMaskIntoConstraints = false
+        pipView.widthAnchor.constraint(equalToConstant: pipWidth).isActive = true
+        pipView.heightAnchor.constraint(equalToConstant: pipHeight).isActive = true
+        
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        pipView.center = pipPositions.last ?? .zero
+    }
+    
+    private func addPIPPositionView() -> PIPPositionView {
+        let view = PIPPositionView()
+        self.view.addSubview(view)
+        pipPositionViews.append(view)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.widthAnchor.constraint(equalToConstant: pipWidth).isActive = true
+        view.heightAnchor.constraint(equalToConstant: pipHeight).isActive = true
+        return view
+    }
+    
+}
+
+class PIPPositionView: UIView {
+    
+    private lazy var shapeLayer: CAShapeLayer = {
+        let layer = CAShapeLayer()
+        layer.strokeColor = UIColor(white: 0.3, alpha: 1).cgColor
+        layer.lineWidth = 2
+        return layer
+    }()
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        sharedInit()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        sharedInit()
+    }
+    
+    private func sharedInit() {
+        layer.addSublayer(shapeLayer)
+    }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        shapeLayer.frame = bounds
+        shapeLayer.path = UIBezierPath(roundedRect: bounds, cornerRadius: 24).cgPath
     }
     
 }
