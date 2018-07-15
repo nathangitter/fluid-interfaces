@@ -10,7 +10,12 @@ import UIKit
 
 class RubberbandingInterfaceViewController: InterfaceViewController {
     
-    private let rubberView = RubberView()
+    private lazy var rubberView: GradientView = {
+        let view = GradientView()
+        view.topColor = UIColor(hex: 0xFF5B50)
+        view.bottomColor = UIColor(hex: 0xFFC950)
+        return view
+    }()
     
     private let panRecognier = UIPanGestureRecognizer()
     
@@ -46,40 +51,6 @@ class RubberbandingInterfaceViewController: InterfaceViewController {
             animator.startAnimation()
         default: break
         }
-    }
-    
-}
-
-class RubberView: UIView {
-    
-    private lazy var gradientLayer: CAGradientLayer = {
-        let gradientLayer = CAGradientLayer()
-        gradientLayer.colors = [UIColor(hex: 0xFF5B50).cgColor, UIColor(hex: 0xFFC950).cgColor]
-        gradientLayer.startPoint = CGPoint(x: 0, y: 0)
-        gradientLayer.endPoint = CGPoint(x: 0, y: 1)
-        return gradientLayer
-    }()
-    
-    override init(frame: CGRect) {
-        super.init(frame: frame)
-        sharedInit()
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        super.init(coder: aDecoder)
-        sharedInit()
-    }
-    
-    private func sharedInit() {
-        layer.addSublayer(gradientLayer)
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        gradientLayer.frame = bounds
-        let maskLayer = CAShapeLayer()
-        maskLayer.path = UIBezierPath(roundedRect: bounds, cornerRadius: bounds.width * 0.2).cgPath
-        layer.mask = maskLayer
     }
     
 }
