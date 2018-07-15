@@ -22,6 +22,14 @@ class GradientView: UIView {
         }
     }
     
+    /// The corner radius of the view.
+    /// If no value is provided, the default is 20% of the view's width.
+    public var cornerRadius: CGFloat? {
+        didSet {
+            layoutSubviews()
+        }
+    }
+    
     private lazy var gradientLayer: CAGradientLayer = {
         let gradientLayer = CAGradientLayer()
         gradientLayer.colors = [topColor.cgColor, bottomColor.cgColor]
@@ -48,7 +56,7 @@ class GradientView: UIView {
         super.layoutSubviews()
         gradientLayer.frame = bounds
         let maskLayer = CAShapeLayer()
-        maskLayer.path = UIBezierPath(roundedRect: bounds, cornerRadius: bounds.width * 0.2).cgPath
+        maskLayer.path = UIBezierPath(roundedRect: bounds, cornerRadius: cornerRadius ?? bounds.width * 0.2).cgPath
         layer.mask = maskLayer
     }
     

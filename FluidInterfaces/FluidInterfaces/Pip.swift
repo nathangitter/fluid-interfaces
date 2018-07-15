@@ -14,6 +14,7 @@ class PipInterfaceViewController: InterfaceViewController {
         let view = GradientView()
         view.topColor = UIColor(hex: 0xF2F23A)
         view.bottomColor = UIColor(hex: 0xF7A51C)
+        view.cornerRadius = 16
         return view
     }()
     
@@ -55,6 +56,9 @@ class PipInterfaceViewController: InterfaceViewController {
         pipView.widthAnchor.constraint(equalToConstant: pipWidth).isActive = true
         pipView.heightAnchor.constraint(equalToConstant: pipHeight).isActive = true
         
+        panRecognizer.addTarget(self, action: #selector(pipPanned(recognizer:)))
+        pipView.addGestureRecognizer(panRecognizer)
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -72,6 +76,21 @@ class PipInterfaceViewController: InterfaceViewController {
         return view
     }
     
+    private var initialOffset: CGPoint = .zero
+    
+    @objc private func pipPanned(recognizer: UIPanGestureRecognizer) {
+        let touchPoint = recognizer.location(in: view)
+        switch recognizer.state {
+        case .began:
+            initialOffset = CGPoint(x: touchPoint.x - pipView.center.x, y: touchPoint.y - pipView.center.y)
+        case .changed:
+            pipView.center = CGPoint(x: touchPoint.x - initialOffset.x, y: touchPoint.y - initialOffset.y)
+        case .ended, .cancelled:
+            ()
+        default: break
+        }
+    }
+    
 }
 
 class PipPositionView: UIView {
@@ -79,9 +98,11 @@ class PipPositionView: UIView {
     private lazy var shapeLayer: CAShapeLayer = {
         let layer = CAShapeLayer()
         layer.strokeColor = UIColor(white: 0.3, alpha: 1).cgColor
-        layer.lineWidth = 2
+        layer.lineWidth = lineWidth
         return layer
     }()
+    
+    private let lineWidth: CGFloat = 2
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -100,7 +121,7 @@ class PipPositionView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         shapeLayer.frame = bounds
-        shapeLayer.path = UIBezierPath(roundedRect: bounds, cornerRadius: 24).cgPath
+        shapeLayer.path = UIBezierPath(roundedRect: CGRect(x: bounds.minX + lineWidth / 2, y: bounds.minY + lineWidth / 2, width: bounds.width - lineWidth, height: bounds.height - lineWidth), cornerRadius: 16).cgPath
     }
     
 }
