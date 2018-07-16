@@ -24,8 +24,8 @@ class RubberbandingInterfaceViewController: InterfaceViewController {
         
         view.addSubview(rubberView)
         rubberView.center(in: view)
-        rubberView.widthAnchor.constraint(equalToConstant: 100).isActive = true
-        rubberView.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        rubberView.widthAnchor.constraint(equalToConstant: 160).isActive = true
+        rubberView.heightAnchor.constraint(equalToConstant: 160).isActive = true
         
         panRecognier.addTarget(self, action: #selector(panned(recognizer:)))
         rubberView.addGestureRecognizer(panRecognier)
