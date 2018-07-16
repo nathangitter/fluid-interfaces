@@ -86,9 +86,35 @@ class PipInterfaceViewController: InterfaceViewController {
         case .changed:
             pipView.center = CGPoint(x: touchPoint.x - initialOffset.x, y: touchPoint.y - initialOffset.y)
         case .ended, .cancelled:
-            ()
+            let decelerationRate = UIScrollView.DecelerationRate.normal.rawValue
+            let velocity = recognizer.velocity(in: view)
+            let projectedPosition = CGPoint(
+                x: pipView.center.x + project(initialVelocity: velocity.x, decelerationRate: decelerationRate),
+                y: pipView.center.y + project(initialVelocity: velocity.y, decelerationRate: decelerationRate)
+            )
+            let nearestCornerPosition = nearestCorner(to: projectedPosition)
+            // todo animate this
+            pipView.center = nearestCornerPosition
         default: break
         }
+    }
+    
+    /// Distance traveled after decelerating to zero velocity at a constant rate.
+    private func project(initialVelocity: CGFloat, decelerationRate: CGFloat) -> CGFloat {
+        return (initialVelocity / 1000) * decelerationRate / (1 - decelerationRate)
+    }
+    
+    private func nearestCorner(to point: CGPoint) -> CGPoint {
+        var minDistance = CGFloat.greatestFiniteMagnitude
+        var closestPosition = CGPoint.zero
+        for position in pipPositions {
+            let distance = point.distance(to: position)
+            if distance < minDistance {
+                closestPosition = position
+                minDistance = distance
+            }
+        }
+        return closestPosition
     }
     
 }
@@ -125,23 +151,3 @@ class PipPositionView: UIView {
     }
     
 }
-
-///// Distance traveled after decelerating to zero velocity at a constant rate.
-//func project(initialVelocity: Float, decelerationRate: Float) -> Float {
-//    return (initialVelocity / 1000) * decelerationRate / (1 - decelerationRate)
-//}
-
-// After the PiP is thrown, determine the best corner and re-target it there.
-// (put this is pan gesture ended)
-
-//let decelerationRate = UIScrollView.DecelerationRate.normal
-//
-//let projectedPosition = (
-//    x: x.value + project(initialVelocity: x.velocity, decelerationRate: decelerationRate)
-//    y: y.value + project(initialVelocity: y.velocity, decelerationRate: decelerationRate),
-//)
-//
-//let nearestCornerPosition = nearestCornerTo(projectedPosition)
-//
-//x.target = nearestCornerPosition.x
-//y.traget = nearestCornerPosition.y
