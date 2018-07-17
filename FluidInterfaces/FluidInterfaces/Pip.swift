@@ -147,7 +147,7 @@ class PipPositionView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         shapeLayer.frame = bounds
-        shapeLayer.path = UIBezierPath(roundedRect: CGRect(x: bounds.minX + lineWidth / 2, y: bounds.minY + lineWidth / 2, width: bounds.width - lineWidth, height: bounds.height - lineWidth), cornerRadius: 16).cgPath
+        shapeLayer.path = UIBezierPath(roundedRect: bounds.insetBy(dx: lineWidth / 2, dy: lineWidth / 2), cornerRadius: 16).cgPath
     }
     
 }
