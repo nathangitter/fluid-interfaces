@@ -15,7 +15,7 @@ extension UIView {
         NSLayoutConstraint.activate(constraints)
     }
     
-    func pin(to view: UIView, insets: UIEdgeInsets = UIEdgeInsets()) { // todo replace with .zero on new beta
+    func pin(to view: UIView, insets: UIEdgeInsets = .zero) {
         UIView.activate(constraints: [
             topAnchor.constraint(equalTo: view.topAnchor, constant: insets.top),
             leftAnchor.constraint(equalTo: view.leftAnchor, constant: insets.left),
@@ -24,7 +24,7 @@ extension UIView {
         ])
     }
     
-    func center(in view: UIView, offset: UIOffset = UIOffset()) { // same here
+    func center(in view: UIView, offset: UIOffset = .zero) {
         UIView.activate(constraints: [
             centerXAnchor.constraint(equalTo: view.centerXAnchor, constant: offset.horizontal),
             centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: offset.vertical)
