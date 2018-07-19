@@ -93,8 +93,16 @@ class PipInterfaceViewController: InterfaceViewController {
                 y: pipView.center.y + project(initialVelocity: velocity.y, decelerationRate: decelerationRate)
             )
             let nearestCornerPosition = nearestCorner(to: projectedPosition)
-            // todo animate this
-            pipView.center = nearestCornerPosition
+            let relativeInitialVelocity = CGVector(
+                dx: relativeVelocity(forVelocity: velocity.x, from: pipView.center.x, to: nearestCornerPosition.x),
+                dy: relativeVelocity(forVelocity: velocity.y, from: pipView.center.y, to: nearestCornerPosition.y)
+            )
+            let timingParameters = UISpringTimingParameters(damping: 1, response: 0.4, initialVelocity: relativeInitialVelocity)
+            let animator = UIViewPropertyAnimator(duration: 0, timingParameters: timingParameters)
+            animator.addAnimations {
+                self.pipView.center = nearestCornerPosition
+            }
+            animator.startAnimation()
         default: break
         }
     }
@@ -115,6 +123,11 @@ class PipInterfaceViewController: InterfaceViewController {
             }
         }
         return closestPosition
+    }
+    
+    private func relativeVelocity(forVelocity velocity: CGFloat, from currentValue: CGFloat, to targetValue: CGFloat) -> CGFloat {
+        guard currentValue - targetValue != 0 else { return 0 }
+        return velocity / (targetValue - currentValue)
     }
     
 }
