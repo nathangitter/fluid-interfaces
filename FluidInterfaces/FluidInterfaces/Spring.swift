@@ -23,7 +23,7 @@ class SpringInterfaceViewController: InterfaceViewController {
         sliderView.translatesAutoresizingMaskIntoConstraints = false
         sliderView.title = "DAMPING RATIO"
         sliderView.minValue = 0.1
-        sliderView.maxValue = 1.5
+        sliderView.maxValue = 1
         sliderView.value = dampingRatio
         sliderView.sliderMovedAction = { value in
             self.dampingRatio = value
@@ -36,7 +36,7 @@ class SpringInterfaceViewController: InterfaceViewController {
         sliderView.translatesAutoresizingMaskIntoConstraints = false
         sliderView.title = "FREQUENCY RESPONSE"
         sliderView.minValue = 0.1
-        sliderView.maxValue = 1.5
+        sliderView.maxValue = 2
         sliderView.value = frequencyResponse
         sliderView.sliderMovedAction = { value in
             self.frequencyResponse = value
@@ -44,7 +44,7 @@ class SpringInterfaceViewController: InterfaceViewController {
         return sliderView
     }()
     
-    private var dampingRatio: CGFloat = 1
+    private var dampingRatio: CGFloat = 0.5
     private var frequencyResponse: CGFloat = 1
     
     private let margin: CGFloat = 30
