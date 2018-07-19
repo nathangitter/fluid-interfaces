@@ -21,7 +21,7 @@ class SpringInterfaceViewController: InterfaceViewController {
     private lazy var dampingSliderView: SliderView = {
         let sliderView = SliderView()
         sliderView.translatesAutoresizingMaskIntoConstraints = false
-        sliderView.title = "DAMPING"
+        sliderView.title = "DAMPING (BOUNCINESS)"
         sliderView.minValue = 0.1
         sliderView.maxValue = 1
         sliderView.value = dampingRatio
@@ -33,7 +33,7 @@ class SpringInterfaceViewController: InterfaceViewController {
     private lazy var frequencySliderView: SliderView = {
         let sliderView = SliderView()
         sliderView.translatesAutoresizingMaskIntoConstraints = false
-        sliderView.title = "RESPONSE"
+        sliderView.title = "RESPONSE (SPEED)"
         sliderView.minValue = 0.1
         sliderView.maxValue = 2
         sliderView.value = frequencyResponse
@@ -179,8 +179,7 @@ class SliderView: UIView {
         slider.leadingAnchor.constraint(equalTo: leadingAnchor).isActive = true
         slider.trailingAnchor.constraint(equalTo: trailingAnchor).isActive = true
         slider.bottomAnchor.constraint(equalTo: bottomAnchor).isActive = true
-        slider.heightAnchor.constraint(equalToConstant: 80).isActive = true
-        slider.topAnchor.constraint(equalTo: titleLabel.bottomAnchor).isActive = true
+        slider.topAnchor.constraint(equalTo: titleLabel.bottomAnchor, constant: 20).isActive = true
         
     }
     
