@@ -74,7 +74,7 @@ class SpringInterfaceViewController: InterfaceViewController {
     
     /// Repeatedly animates the view using the current `dampingRatio` and `frequencyResponse`.
     private func animateView() {
-        let timingParameters = UISpringTimingParameters(dampingRatio: dampingRatio, frequencyResponse: frequencyResponse)
+        let timingParameters = UISpringTimingParameters(damping: dampingRatio, response: frequencyResponse)
         let animator = UIViewPropertyAnimator(duration: 0, timingParameters: timingParameters)
         animator.addAnimations {
             let translation = self.view.bounds.width - 2 * self.margin - 80
@@ -184,11 +184,15 @@ class SliderView: UIView {
 
 extension UISpringTimingParameters {
     
-    public convenience init(dampingRatio: CGFloat, frequencyResponse: CGFloat) {
-        let mass: CGFloat = 1
-        let stiffness = pow(2 * .pi / frequencyResponse, 2) * mass
-        let damping = 4 * .pi * dampingRatio * mass / frequencyResponse
-        self.init(mass: mass, stiffness: stiffness, damping: damping, initialVelocity: .zero)
+    /// A design-friendly way to create a spring timing curve.
+    ///
+    /// - Parameters:
+    ///   - damping: The 'bounciness' of the animation. Value must be between 0 and 1.
+    ///   - response: The 'speed' of the animation.
+    public convenience init(damping: CGFloat, response: CGFloat) {
+        let stiffness = pow(2 * .pi / response, 2)
+        let damp = 4 * .pi * damping / response
+        self.init(mass: 1, stiffness: stiffness, damping: damp, initialVelocity: .zero)
     }
     
 }
