@@ -21,26 +21,24 @@ class SpringInterfaceViewController: InterfaceViewController {
     private lazy var dampingSliderView: SliderView = {
         let sliderView = SliderView()
         sliderView.translatesAutoresizingMaskIntoConstraints = false
-        sliderView.title = "DAMPING RATIO"
+        sliderView.title = "DAMPING"
         sliderView.minValue = 0.1
         sliderView.maxValue = 1
         sliderView.value = dampingRatio
-        sliderView.sliderMovedAction = { value in
-            self.dampingRatio = value
-        }
+        sliderView.sliderMovedAction = { self.dampingRatio = $0 }
+        sliderView.sliderFinishedMovingAction = { self.resetAnimation() }
         return sliderView
     }()
     
     private lazy var frequencySliderView: SliderView = {
         let sliderView = SliderView()
         sliderView.translatesAutoresizingMaskIntoConstraints = false
-        sliderView.title = "FREQUENCY RESPONSE"
+        sliderView.title = "FREQUENCY"
         sliderView.minValue = 0.1
         sliderView.maxValue = 2
         sliderView.value = frequencyResponse
-        sliderView.sliderMovedAction = { value in
-            self.frequencyResponse = value
-        }
+        sliderView.sliderMovedAction = { self.frequencyResponse = $0 }
+        sliderView.sliderFinishedMovingAction = { self.resetAnimation() }
         return sliderView
     }()
     
@@ -72,10 +70,12 @@ class SpringInterfaceViewController: InterfaceViewController {
         
     }
     
+    private var animator = UIViewPropertyAnimator()
+    
     /// Repeatedly animates the view using the current `dampingRatio` and `frequencyResponse`.
     private func animateView() {
         let timingParameters = UISpringTimingParameters(damping: dampingRatio, response: frequencyResponse)
-        let animator = UIViewPropertyAnimator(duration: 0, timingParameters: timingParameters)
+        animator = UIViewPropertyAnimator(duration: 0, timingParameters: timingParameters)
         animator.addAnimations {
             let translation = self.view.bounds.width - 2 * self.margin - 80
             self.springView.transform = CGAffineTransform(translationX: translation, y: 0)
@@ -85,6 +85,12 @@ class SpringInterfaceViewController: InterfaceViewController {
             self.animateView()
         }
         animator.startAnimation()
+    }
+    
+    private func resetAnimation() {
+        animator.stopAnimation(true)
+        self.springView.transform = .identity
+        animateView()
     }
     
 }
@@ -122,6 +128,9 @@ class SliderView: UIView {
     /// Code that's executed when the slider moves.
     public var sliderMovedAction: (CGFloat) -> () = { _ in }
     
+    /// Code that's executed when the slider has finished moving.
+    public var sliderFinishedMovingAction: () -> () = {}
+    
     private lazy var titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
@@ -133,7 +142,7 @@ class SliderView: UIView {
     private lazy var slider: UISlider = {
         let slider = UISlider()
         slider.translatesAutoresizingMaskIntoConstraints = false
-        slider.addTarget(self, action: #selector(sliderMoved), for: .valueChanged)
+        slider.addTarget(self, action: #selector(sliderMoved(slider:event:)), for: .valueChanged)
         return slider
     }()
     
@@ -175,9 +184,10 @@ class SliderView: UIView {
         
     }
     
-    @objc private func sliderMoved() {
+    @objc private func sliderMoved(slider: UISlider, event: UIEvent) {
         valueLabel.text = String(format: "%.2f", slider.value)
         sliderMovedAction(CGFloat(slider.value))
+        if event.allTouches?.first?.phase == .ended { sliderFinishedMovingAction() }
     }
     
 }
