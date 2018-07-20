@@ -32,7 +32,7 @@ class MomentumInterfaceViewController: InterfaceViewController {
         view.addSubview(momentumView)
         momentumView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 8).isActive = true
         momentumView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8).isActive = true
-        momentumView.bottomAnchor.constraint(equalTo: view.bottomAnchor).isActive = true
+        momentumView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 80).isActive = true
         momentumView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80).isActive = true
         
         closedTransform = CGAffineTransform(translationX: 0, y: view.bounds.height * 0.6)
@@ -64,7 +64,7 @@ class MomentumInterfaceViewController: InterfaceViewController {
             if animator.isReversed { fraction *= -1 }
             animator.fractionComplete = fraction + animationProgress
         case .ended, .cancelled:
-            let yVelocity = recognizer.velocity(in: momentumView).y
+            var yVelocity = recognizer.velocity(in: momentumView).y
             let shouldClose = yVelocity > 0
             if yVelocity == 0 {
                 animator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
@@ -77,7 +77,14 @@ class MomentumInterfaceViewController: InterfaceViewController {
                 if shouldClose && !animator.isReversed { animator.isReversed.toggle() }
                 if !shouldClose && animator.isReversed { animator.isReversed.toggle() }
             }
-            animator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
+            let minExtraDamping: CGFloat = 0
+            let maxExtraDamping: CGFloat = 0.5
+            let maxYVelocity: CGFloat = 5000
+            if yVelocity > maxYVelocity { yVelocity = maxYVelocity }
+            let extraDamping = minExtraDamping + (abs(yVelocity) / maxYVelocity) * (maxExtraDamping - minExtraDamping)
+            let timingParameteres = UISpringTimingParameters(damping: 1 - extraDamping, response: 0.4, initialVelocity: CGVector(dx: 0, dy: yVelocity))
+            // todo fix bounciness when the animation is already mostly complete
+            animator.continueAnimation(withTimingParameters: timingParameteres, durationFactor: 0)
         default: break
         }
     }
