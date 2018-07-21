@@ -18,6 +18,14 @@ class MomentumInterfaceViewController: InterfaceViewController {
         return view
     }()
     
+    private lazy var handleView: UIView = {
+        let view = UIView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.backgroundColor = UIColor(white: 0.4, alpha: 1)
+        view.layer.cornerRadius = 3
+        return view
+    }()
+    
     private let panRecognier = InstantPanGestureRecognizer()
     private var animator = UIViewPropertyAnimator()
     
@@ -34,6 +42,12 @@ class MomentumInterfaceViewController: InterfaceViewController {
         momentumView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -8).isActive = true
         momentumView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 80).isActive = true
         momentumView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 80).isActive = true
+        
+        momentumView.addSubview(handleView)
+        handleView.topAnchor.constraint(equalTo: momentumView.topAnchor, constant: 10).isActive = true
+        handleView.widthAnchor.constraint(equalToConstant: 50).isActive = true
+        handleView.heightAnchor.constraint(equalToConstant: 5).isActive = true
+        handleView.centerXAnchor.constraint(equalTo: momentumView.centerXAnchor).isActive = true
         
         closedTransform = CGAffineTransform(translationX: 0, y: view.bounds.height * 0.6)
         momentumView.transform = closedTransform
@@ -78,11 +92,11 @@ class MomentumInterfaceViewController: InterfaceViewController {
                 if !shouldClose && animator.isReversed { animator.isReversed.toggle() }
             }
             let minExtraDamping: CGFloat = 0
-            let maxExtraDamping: CGFloat = 0.5
+            let maxExtraDamping: CGFloat = 0.6
             let maxYVelocity: CGFloat = 5000
             if yVelocity > maxYVelocity { yVelocity = maxYVelocity }
             let extraDamping = minExtraDamping + (abs(yVelocity) / maxYVelocity) * (maxExtraDamping - minExtraDamping)
-            let timingParameteres = UISpringTimingParameters(damping: 1 - extraDamping, response: 0.4, initialVelocity: CGVector(dx: 0, dy: yVelocity))
+            let timingParameteres = UISpringTimingParameters(damping: 1 - extraDamping, response: 1, initialVelocity: .zero)
             // todo fix bounciness when the animation is already mostly complete
             animator.continueAnimation(withTimingParameters: timingParameteres, durationFactor: 0)
         default: break
