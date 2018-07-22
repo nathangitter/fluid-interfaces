@@ -95,6 +95,7 @@ class SpringInterfaceViewController: InterfaceViewController {
     
 }
 
+/// A view that displays a title, value, and slider.
 class SliderView: UIView {
     
     public var title: String = "" {

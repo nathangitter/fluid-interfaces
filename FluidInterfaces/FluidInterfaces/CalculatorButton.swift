@@ -28,6 +28,7 @@ class CalculatorButtonInterfaceViewController: InterfaceViewController {
 
 class CalculatorButton: UIControl {
     
+    /// The value to display on the button.
     public var value: Int = 0 {
         didSet {
             label.text = "\(value)"

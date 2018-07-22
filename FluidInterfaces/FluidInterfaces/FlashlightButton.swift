@@ -44,8 +44,14 @@ class FlashlightButton: UIControl {
         return imageView
     }()
     
+    /// Whether the button is on or off.
     private var isOn = false
+    
+    /// The current state of the force press.
     private var forceState: ForceState = .reset
+    
+    /// Whether the touch has exited the bounds of the button.
+    /// This is used to cancel touches that move outisde of its bounds.
     private var touchExited = false
     
     private let activationFeedbackGenerator = UIImpactFeedbackGenerator(style: .light)
@@ -120,6 +126,7 @@ class FlashlightButton: UIControl {
         
         let cancelDistance: CGFloat = minWidth / 2 + 20
         guard touch.location(in: self).distance(to: CGPoint(x: bounds.midX, y: bounds.midY)) < cancelDistance else {
+            // the touch has moved outside of the bounds of the button
             touchExited = true
             if forceState == .activated {
                 activate()
@@ -132,6 +139,7 @@ class FlashlightButton: UIControl {
         let force = touch.force / touch.maximumPossibleForce
         let scale = 1 + (maxWidth / minWidth - 1) * force
         
+        // update the button's size and color
         transform = CGAffineTransform(scaleX: scale, y: scale)
         if !isOn { backgroundColor = UIColor(white: 0.2 - force * 0.2, alpha: 1) }
         

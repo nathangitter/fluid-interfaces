@@ -86,16 +86,23 @@ class AccelerationInterfaceViewController: InterfaceViewController {
         }
     }
     
+    /// The number of past velocities to track.
     private let numberOfVelocities = 7
     
+    /// The array of past velocities.
     private var velocities = [CGFloat]()
     
+    /// Whether the view is considered paused.
     private var hasPaused = false
     
+    /// Tracks the most recent velocity values, and determines whether the change is great enough to be pasued.
+    /// After calling this function, the result can be checked in the `hasPaused` property.
     private func trackPause(velocity: CGFloat, offset: CGFloat) {
         
+        // if the motion is paused, we are done
         if hasPaused { return }
         
+        // update the array of most recent velocities
         if velocities.count < numberOfVelocities {
             velocities.append(velocity)
             return
@@ -108,6 +115,8 @@ class AccelerationInterfaceViewController: InterfaceViewController {
         if abs(velocity) > 100 || abs(offset) < 50 { return }
         
         guard let firstRecordedVelocity = velocities.first else { return }
+        
+        // if the majority of the velocity has been lost recetly, we consider the motion to be paused
         if abs(firstRecordedVelocity - velocity) / abs(firstRecordedVelocity) > 0.9 {
             pauseLabel.alpha = 1
             feedbackGenerator.impactOccurred()

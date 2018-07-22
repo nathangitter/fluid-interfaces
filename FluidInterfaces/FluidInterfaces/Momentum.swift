@@ -99,9 +99,9 @@ class MomentumInterfaceViewController: InterfaceViewController {
             let maxYVelocity: CGFloat = 5000
             if yVelocity > maxYVelocity { yVelocity = maxYVelocity }
             let extraDamping = minExtraDamping + (abs(yVelocity) / maxYVelocity) * (maxExtraDamping - minExtraDamping)
-            let timingParameteres = UISpringTimingParameters(damping: 1 - extraDamping, response: 1, initialVelocity: .zero)
+            let timingParameters = UISpringTimingParameters(damping: 1 - extraDamping, response: 1, initialVelocity: .zero)
             // todo fix bounciness when the animation is already mostly complete
-            animator.continueAnimation(withTimingParameters: timingParameteres, durationFactor: 0)
+            animator.continueAnimation(withTimingParameters: timingParameters, durationFactor: 0)
         default: break
         }
     }

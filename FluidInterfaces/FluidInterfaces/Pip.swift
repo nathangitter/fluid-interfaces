@@ -112,6 +112,7 @@ class PipInterfaceViewController: InterfaceViewController {
         return (initialVelocity / 1000) * decelerationRate / (1 - decelerationRate)
     }
     
+    /// Finds the position of the nearest corner to the given point.
     private func nearestCorner(to point: CGPoint) -> CGPoint {
         var minDistance = CGFloat.greatestFiniteMagnitude
         var closestPosition = CGPoint.zero
@@ -125,6 +126,7 @@ class PipInterfaceViewController: InterfaceViewController {
         return closestPosition
     }
     
+    /// Calculates the relative velocity needed for the initial velocity of the animation.
     private func relativeVelocity(forVelocity velocity: CGFloat, from currentValue: CGFloat, to targetValue: CGFloat) -> CGFloat {
         guard currentValue - targetValue != 0 else { return 0 }
         return velocity / (targetValue - currentValue)
