@@ -1,32 +1,34 @@
 # Fluid Interfaces
 Code for [Apple's WWDC18 presentation "Designing Fluid Interfaces"](https://developer.apple.com/videos/play/wwdc2018/803/)
 
-## List of interfaces
+## All Interfaces
 ### Spring Animations
 
+(demo gif)
 
 ### Rubberbanding
 
 
-### Calculator button
+### Calculator Button
 
 
-### Acceleration pausing
+### Acceleration Pausing
 
 
-### Flashlight button
+### Flashlight Button
 
 
-### Rewarding momentum
+### Rewarding Momentum
 
 
 ### FaceTime PiP
 
 
-### Scaling and rotation
+### Rotation
 
 
-### Springboard
+## Author
+You can find me on Twitter [@nathangitter](https://twitter.com/nathangitter)
 
-
-## Liscence
+## Copyright
+© 2018 Nathan Gitter
