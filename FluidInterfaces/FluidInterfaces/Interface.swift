@@ -26,8 +26,7 @@ extension Interface {
             Interface(name: "Flashlight button", icon: #imageLiteral(resourceName: "icon_flash"), color: UIColor(hex: 0xEDEDED), type: FlashlightButtonInterfaceViewController.self),
             Interface(name: "Rewarding momentum", icon: #imageLiteral(resourceName: "icon_momentum"), color: UIColor(hex: 0x73B2FF), type: MomentumInterfaceViewController.self),
             Interface(name: "FaceTime PiP", icon: #imageLiteral(resourceName: "icon_pip"), color: UIColor(hex: 0xF2F23A), type: PipInterfaceViewController.self),
-            Interface(name: "Scaling and rotation", icon: #imageLiteral(resourceName: "icon_rotation"), color: UIColor(hex: 0xFF28A5), type: RotationInterfaceViewController.self),
-            Interface(name: "Springboard", icon: #imageLiteral(resourceName: "icon_springboard"), color: UIColor(hex: 0x46B4FF), type: SpringboardInterfaceViewController.self),
+            Interface(name: "Rotation", icon: #imageLiteral(resourceName: "icon_rotation"), color: UIColor(hex: 0xFF28A5), type: RotationInterfaceViewController.self),
         ]
     }
     

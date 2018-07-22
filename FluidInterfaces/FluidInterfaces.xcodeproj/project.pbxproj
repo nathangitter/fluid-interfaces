@@ -25,7 +25,6 @@
 		D8976ABE20F2D3FA00E148CB /* Acceleration.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8976ABD20F2D3FA00E148CB /* Acceleration.swift */; };
 		D8976AC020F2D42200E148CB /* Momentum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8976ABF20F2D42200E148CB /* Momentum.swift */; };
 		D8976AC220F2D44C00E148CB /* Pip.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8976AC120F2D44C00E148CB /* Pip.swift */; };
-		D8976AC420F2D46B00E148CB /* Springboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8976AC320F2D46B00E148CB /* Springboard.swift */; };
 		D8976AC620F2D48800E148CB /* Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8976AC520F2D48800E148CB /* Rotation.swift */; };
 /* End PBXBuildFile section */
 
@@ -50,7 +49,6 @@
 		D8976ABD20F2D3FA00E148CB /* Acceleration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Acceleration.swift; sourceTree = "<group>"; };
 		D8976ABF20F2D42200E148CB /* Momentum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Momentum.swift; sourceTree = "<group>"; };
 		D8976AC120F2D44C00E148CB /* Pip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pip.swift; sourceTree = "<group>"; };
-		D8976AC320F2D46B00E148CB /* Springboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Springboard.swift; sourceTree = "<group>"; };
 		D8976AC520F2D48800E148CB /* Rotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rotation.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -96,7 +94,6 @@
 				D8976ABF20F2D42200E148CB /* Momentum.swift */,
 				D8976AC120F2D44C00E148CB /* Pip.swift */,
 				D8976AC520F2D48800E148CB /* Rotation.swift */,
-				D8976AC320F2D46B00E148CB /* Springboard.swift */,
 				D8409D0B20FC010B00C7DCD2 /* GradientView.swift */,
 				D806B89120F82A3700740219 /* UIViewExtensions.swift */,
 				D806B88F20F8275600740219 /* UIColorExtensions.swift */,
@@ -188,7 +185,6 @@
 				D8409D0C20FC010B00C7DCD2 /* GradientView.swift in Sources */,
 				D8976AB820F2D38E00E148CB /* FlashlightButton.swift in Sources */,
 				D8409D0A20FBDA8100C7DCD2 /* CGPointExtensions.swift in Sources */,
-				D8976AC420F2D46B00E148CB /* Springboard.swift in Sources */,
 				D8757E7220F124BD00D7EB4E /* AppDelegate.swift in Sources */,
 				D8976ABE20F2D3FA00E148CB /* Acceleration.swift in Sources */,
 				D8976AC020F2D42200E148CB /* Momentum.swift in Sources */,
