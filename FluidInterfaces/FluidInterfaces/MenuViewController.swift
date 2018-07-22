@@ -40,6 +40,7 @@ extension MenuViewController: UICollectionViewDelegate {
         let viewController = interface.type.init()
         viewController.title = interface.name
         navigationController?.pushViewController(viewController, animated: true)
+        viewController.navigationController?.navigationBar.tintColor = interface.color
     }
     
 }
