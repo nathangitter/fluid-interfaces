@@ -14,6 +14,13 @@ class MenuViewController: UIViewController {
     
     @IBOutlet private weak var collectionView: UICollectionView!
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+        view.backgroundColor = UIColor(white: 0.05, alpha: 1)
+        
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         

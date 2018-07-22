@@ -14,7 +14,7 @@ class InterfaceViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        view.backgroundColor = .black
+        view.backgroundColor = UIColor(white: 0.05, alpha: 1) // reduces screen tearing on iPhone X
         navigationItem.largeTitleDisplayMode = .never
         
     }
