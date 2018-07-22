@@ -11,17 +11,20 @@ import UIKit.UIGestureRecognizerSubclass
 
 class MomentumInterfaceViewController: InterfaceViewController {
     
-    private lazy var momentumView: UIView = {
-        let view = UIView()
+    private lazy var momentumView: GradientView = {
+        let view = GradientView()
         view.translatesAutoresizingMaskIntoConstraints = false
         view.backgroundColor = UIColor(white: 0.3, alpha: 1)
+        view.topColor = UIColor(hex: 0x61A8FF)
+        view.bottomColor = UIColor(hex: 0x243BD1)
+        view.cornerRadius = 30
         return view
     }()
     
     private lazy var handleView: UIView = {
         let view = UIView()
         view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = UIColor(white: 0.4, alpha: 1)
+        view.backgroundColor = UIColor(white: 1, alpha: 0.5)
         view.layer.cornerRadius = 3
         return view
     }()
