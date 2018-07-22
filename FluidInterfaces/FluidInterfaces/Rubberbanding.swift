@@ -44,9 +44,11 @@ class RubberbandingInterfaceViewController: InterfaceViewController {
             offset = offset > 0 ? pow(offset, 0.7) : -pow(-offset, 0.7)
             rubberView.transform = CGAffineTransform(translationX: 0, y: offset)
         case .ended, .cancelled:
-            let animator = UIViewPropertyAnimator(duration: 0.3, dampingRatio: 0.6, animations: {
+            let timingParameters = UISpringTimingParameters(damping: 0.6, response: 0.3)
+            let animator = UIViewPropertyAnimator(duration: 0, timingParameters: timingParameters)
+            animator.addAnimations {
                 self.rubberView.transform = .identity
-            })
+            }
             animator.isInterruptible = true
             animator.startAnimation()
         default: break

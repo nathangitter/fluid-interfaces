@@ -169,10 +169,12 @@ class FlashlightButton: UIControl {
     }
     
     private func animateToRest() {
-        let animator = UIViewPropertyAnimator(duration: 0.6, dampingRatio: 0.3, animations: {
+        let timingParameters = UISpringTimingParameters(damping: 0.4, response: 0.2)
+        let animator = UIViewPropertyAnimator(duration: 0, timingParameters: timingParameters)
+        animator.addAnimations {
             self.transform = CGAffineTransform(scaleX: 1, y: 1)
             self.backgroundColor = self.isOn ? self.onColor : self.offColor
-        })
+        }
         animator.isInterruptible = true
         animator.startAnimation()
     }

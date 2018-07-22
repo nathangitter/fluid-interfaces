@@ -73,10 +73,12 @@ class AccelerationInterfaceViewController: InterfaceViewController {
             accelerationView.transform = CGAffineTransform(translationX: 0, y: offset)
             trackPause(velocity: velocity.y, offset: offset)
         case .ended, .cancelled:
-            let animator = UIViewPropertyAnimator(duration: 0.3, dampingRatio: 0.6, animations: {
+            let timingParameters = UISpringTimingParameters(damping: 0.8, response: 0.3)
+            let animator = UIViewPropertyAnimator(duration: 0, timingParameters: timingParameters)
+            animator.addAnimations {
                 self.accelerationView.transform = .identity
                 self.pauseLabel.alpha = 0
-            })
+            }
             animator.isInterruptible = true
             animator.startAnimation()
             hasPaused = false
