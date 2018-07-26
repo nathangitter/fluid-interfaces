@@ -11,7 +11,7 @@ Code for [Apple's WWDC18 presentation "Designing Fluid Interfaces"](https://deve
 
 [📺 Designing Fluid Interfaces 50:13](https://developer.apple.com/videos/play/wwdc2018/803/?time=3013)
 
-<img src="Resources/section-spring.png" alt="Spring Animations">
+<img src="Resources/calcdemo.gif" alt="Calculator Button Demo">
 
 <br>
 <p align="center"><img src="Resources/section-spring.png" alt="Spring Animations"></p>
