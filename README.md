@@ -5,16 +5,11 @@ Code for [Apple's WWDC18 presentation "Designing Fluid Interfaces"](https://deve
 
 ## All Interfaces
 
-<p align="center"><img src="Resources/section-calc.png" alt="Calculator Button"></p>
-
 ### Calculator Button
 
 [📺 Designing Fluid Interfaces 50:13](https://developer.apple.com/videos/play/wwdc2018/803/?time=3013)
 
 <img src="Resources/calcdemo.gif" alt="Calculator Button Demo">
-
-<br>
-<p align="center"><img src="Resources/section-spring.png" alt="Spring Animations"></p>
 
 ### Spring Animations
 
@@ -22,17 +17,11 @@ Code for [Apple's WWDC18 presentation "Designing Fluid Interfaces"](https://deve
 
 <img src="Resources/springdemo.gif" alt="Spring Demo">
 
-<br>
-<p align="center"><img src="Resources/section-flash.png" alt="Flashlight Button"></p>
-
 ### Flashlight Button
 
 [📺 Designing Fluid Interfaces 37:59](https://developer.apple.com/videos/play/wwdc2018/803/?time=2279)
 
 <img src="Resources/flashdemo.gif" alt="Flashlight Button Demo">
-
-<br>
-<p align="center"><img src="Resources/section-rubber.png" alt="Rubberbanding"></p>
 
 ### Rubberbanding
 
