@@ -11,14 +11,21 @@ Code for [Apple's WWDC18 presentation "Designing Fluid Interfaces"](https://deve
 
 [📺 Designing Fluid Interfaces 50:13](https://developer.apple.com/videos/play/wwdc2018/803/?time=3013)
 
+<br>
+<p align="center"><img src="Resources/section-spring.png" alt="Spring Animations"></p>
+
 ### Spring Animations
 
 [📺 Designing Fluid Interfaces 31:40](https://developer.apple.com/videos/play/wwdc2018/803/?time=1900)
+
+<br>
+<p align="center"><img src="Resources/section-flash.png" alt="Flashlight Button"></p>
 
 ### Flashlight Button
 
 [📺 Designing Fluid Interfaces 37:59](https://developer.apple.com/videos/play/wwdc2018/803/?time=2279)
 
+<br>
 <p align="center"><img src="Resources/section-rubber.png" alt="Rubberbanding"></p>
 
 ### Rubberbanding
