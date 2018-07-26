@@ -1,7 +1,11 @@
+<p align="center"><img src="Resources/repo-banner.png" alt="Fluid Interfaces Title Graphic"></p>
+
 # Fluid Interfaces
 Code for [Apple's WWDC18 presentation "Designing Fluid Interfaces"](https://developer.apple.com/videos/play/wwdc2018/803/)
 
 ## All Interfaces
+
+<p align="center"><img src="Resources/section-calc.png" alt="Calculator Button"></p>
 
 ### Calculator Button
 
@@ -14,6 +18,8 @@ Code for [Apple's WWDC18 presentation "Designing Fluid Interfaces"](https://deve
 ### Flashlight Button
 
 [📺 Designing Fluid Interfaces 37:59](https://developer.apple.com/videos/play/wwdc2018/803/?time=2279)
+
+<p align="center"><img src="Resources/section-rubber.png" alt="Rubberbanding"></p>
 
 ### Rubberbanding
 
