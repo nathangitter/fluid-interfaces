@@ -2,6 +2,8 @@
 
 ### ⏩ Check out the accompanying blog post for more details: [Building Fluid Interfaces]() ⏪
 
+⭐️ If you found this repo helpful, please star it. Thanks! ⭐️
+
 ### Background
 
 At WWDC 2018, Apple designers gave a talk titled "Designing Fluid Interfaces", explaining the design theory behind the gesture-based interface of iPhone X. (The presentation is available here: [Designing Fluid Interfaces](https://developer.apple.com/videos/play/wwdc2018/803/))
@@ -13,6 +15,24 @@ The goal with this project is to bridge the gap between inspiration and implemen
 ### Installation
 
 Download or clone the repo and open the `FluidInterfaces.xcodeproj` file with Xcode 10.
+
+### Interfaces
+
+[Calculator Button](#calculator-button)
+
+[Spring Animations](#spring-animations)
+
+[Flashlight Button](#flashlight-button)
+
+[Rubberbanding](#rubberbanding)
+
+[Acceleration Pausing](#acceleration-pausing)
+
+[Rewarding Momentum](#rewarding-momentum)
+
+[FaceTime PiP](#facetime-pip)
+
+[Rotation](#rotation)
 
 ## Calculator Button
 
