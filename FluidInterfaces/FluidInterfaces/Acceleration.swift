@@ -42,7 +42,6 @@ class AccelerationInterfaceViewController: InterfaceViewController {
         pauseLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 40).isActive = true
         
         view.addSubview(accelerationView)
-        // todo center in safe area? / make sure this works on different device sizes
         accelerationView.center(in: view, offset: UIOffset(horizontal: 0, vertical: verticalOffset))
         accelerationView.widthAnchor.constraint(equalToConstant: 160).isActive = true
         accelerationView.heightAnchor.constraint(equalToConstant: 160).isActive = true
