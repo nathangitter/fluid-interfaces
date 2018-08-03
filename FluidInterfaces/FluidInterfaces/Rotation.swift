@@ -41,7 +41,7 @@ class RotationInterfaceViewController: InterfaceViewController {
         case .changed:
             rotationView.transform = CGAffineTransform(rotationAngle: originalRotation + rotationRecognizer.rotation)
         case .ended, .cancelled:
-            let decelerationRate = UIScrollView.DecelerationRate.fast.rawValue
+            let decelerationRate = UIScrollViewDecelerationRateFast
             let velocity = rotationRecognizer.velocity
             let projectedRotation = rotationRecognizer.rotation + project(initialVelocity: velocity, decelerationRate: decelerationRate)
             let nearestAngle = closestAngle(to: projectedRotation)

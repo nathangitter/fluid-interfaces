@@ -86,7 +86,7 @@ class PipInterfaceViewController: InterfaceViewController {
         case .changed:
             pipView.center = CGPoint(x: touchPoint.x - initialOffset.x, y: touchPoint.y - initialOffset.y)
         case .ended, .cancelled:
-            let decelerationRate = UIScrollView.DecelerationRate.normal.rawValue
+            let decelerationRate = UIScrollViewDecelerationRateNormal
             let velocity = recognizer.velocity(in: view)
             let projectedPosition = CGPoint(
                 x: pipView.center.x + project(initialVelocity: velocity.x, decelerationRate: decelerationRate),

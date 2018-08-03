@@ -88,11 +88,11 @@ class MomentumInterfaceViewController: InterfaceViewController {
                 break
             }
             if isOpen {
-                if !shouldClose && !animator.isReversed { animator.isReversed.toggle() }
-                if shouldClose && animator.isReversed { animator.isReversed.toggle() }
+                if !shouldClose && !animator.isReversed { animator.isReversed = !animator.isReversed }
+                if shouldClose && animator.isReversed { animator.isReversed = !animator.isReversed }
             } else {
-                if shouldClose && !animator.isReversed { animator.isReversed.toggle() }
-                if !shouldClose && animator.isReversed { animator.isReversed.toggle() }
+                if shouldClose && !animator.isReversed { animator.isReversed = !animator.isReversed }
+                if !shouldClose && animator.isReversed { animator.isReversed = !animator.isReversed }
             }
             let minExtraDamping: CGFloat = 0
             let maxExtraDamping: CGFloat = 0.6
@@ -114,7 +114,7 @@ class MomentumInterfaceViewController: InterfaceViewController {
             self.momentumView.transform = self.isOpen ? self.closedTransform : .identity
         }
         animator.addCompletion { position in
-            if position == .end { self.isOpen.toggle() }
+            if position == .end { self.isOpen = !self.isOpen }
         }
         animator.startAnimation()
     }

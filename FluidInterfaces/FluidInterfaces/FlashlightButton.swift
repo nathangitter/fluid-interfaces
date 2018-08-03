@@ -167,7 +167,7 @@ class FlashlightButton: UIControl {
     }
     
     private func activate() {
-        isOn.toggle()
+        isOn = !isOn
         imageView.image = isOn ? onImage : offImage
         imageView.tintColor = isOn ? .black : .white
         backgroundColor = isOn ? onColor : offColor
