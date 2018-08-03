@@ -128,9 +128,6 @@ class FlashlightButton: UIControl {
         guard touch.location(in: self).distance(to: CGPoint(x: bounds.midX, y: bounds.midY)) < cancelDistance else {
             // the touch has moved outside of the bounds of the button
             touchExited = true
-            if forceState == .activated {
-                activate()
-            }
             forceState = .reset
             animateToRest()
             return
@@ -164,6 +161,7 @@ class FlashlightButton: UIControl {
     
     private func touchEnded(touch: UITouch?) {
         guard !touchExited else { return }
+        if forceState == .activated { activate() }
         forceState = .reset
         animateToRest()
     }
