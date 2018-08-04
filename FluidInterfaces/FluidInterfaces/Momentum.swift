@@ -81,7 +81,7 @@ class MomentumInterfaceViewController: InterfaceViewController {
             if animator.isReversed { fraction *= -1 }
             animator.fractionComplete = fraction + animationProgress
         case .ended, .cancelled:
-            var yVelocity = recognizer.velocity(in: momentumView).y
+            let yVelocity = recognizer.velocity(in: momentumView).y
             let shouldClose = yVelocity > 0
             if yVelocity == 0 {
                 animator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
@@ -94,14 +94,17 @@ class MomentumInterfaceViewController: InterfaceViewController {
                 if shouldClose && !animator.isReversed { animator.isReversed.toggle() }
                 if !shouldClose && animator.isReversed { animator.isReversed.toggle() }
             }
-            let minExtraDamping: CGFloat = 0
-            let maxExtraDamping: CGFloat = 0.6
-            let maxYVelocity: CGFloat = 5000
-            if yVelocity > maxYVelocity { yVelocity = maxYVelocity }
-            let extraDamping = minExtraDamping + (abs(yVelocity) / maxYVelocity) * (maxExtraDamping - minExtraDamping)
-            let timingParameters = UISpringTimingParameters(damping: 1 - extraDamping, response: 1, initialVelocity: .zero)
-            // todo fix bounciness when the animation is already mostly complete?
-            animator.continueAnimation(withTimingParameters: timingParameters, durationFactor: 0)
+            let fractionRemaining = 1 - animator.fractionComplete
+            let distanceRemaining = fractionRemaining * closedTransform.ty
+            if distanceRemaining == 0 {
+                animator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
+                break
+            }
+            let relativeVelocity = min(abs(yVelocity) / distanceRemaining, 30)
+            let timingParameters = UISpringTimingParameters(damping: 0.8, response: 0.3, initialVelocity: CGVector(dx: relativeVelocity, dy: 0))
+            let preferredDuration = UIViewPropertyAnimator(duration: 0, timingParameters: timingParameters).duration
+            let durationFactor = CGFloat(preferredDuration / animator.duration)
+            animator.continueAnimation(withTimingParameters: timingParameters, durationFactor: durationFactor)
         default: break
         }
     }
