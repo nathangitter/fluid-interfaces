@@ -16,6 +16,8 @@ The goal with this project is to bridge the gap between inspiration and implemen
 
 Download or clone the repo and open the `FluidInterfaces.xcodeproj` file with Xcode 10.
 
+If you are using Xcode 9, switch to the branch named "Xcode9".
+
 ### Interfaces
 
 [Calculator Button](#calculator-button)
