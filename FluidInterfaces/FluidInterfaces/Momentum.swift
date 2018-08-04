@@ -9,6 +9,17 @@
 import UIKit
 import UIKit.UIGestureRecognizerSubclass
 
+// If I were to do this again, I would probably take the following approach:
+//
+// 1. Instead of using the `UIViewPropertyAnimator`s `fractionComplete` and `isReversed`,
+//    I would update the position of the view at any point manually.
+// 2. Only use a UIViewPropertyAnimator to "finish" the animation (with or without damping).
+// 3. Remove the ability to "catch" the view mid-flight.
+//    It has a little bit of jank, and with a fast animation doesn't seem that practical.
+//    (Still should be interruptible and reversible, but with a pan gesture.)
+// 4. Add rubberbanding to the top and bottom boundaries of the view.
+// 5. Allow the view to have an arbitrary, potentially scrolling view as its content.
+
 class MomentumInterfaceViewController: InterfaceViewController {
     
     private lazy var momentumView: GradientView = {
@@ -29,9 +40,12 @@ class MomentumInterfaceViewController: InterfaceViewController {
         return view
     }()
     
+    // todo: add an explicit tap recognizer as well
     private let panRecognier = InstantPanGestureRecognizer()
+    
     private var animator = UIViewPropertyAnimator()
     
+    // todo: refactor state to use an enum with associated valued
     private var isOpen = false
     private var animationProgress: CGFloat = 0
     
@@ -60,15 +74,6 @@ class MomentumInterfaceViewController: InterfaceViewController {
         
     }
     
-    override func viewDidLayoutSubviews() {
-        super.viewDidLayoutSubviews()
-        
-        let maskLayer = CAShapeLayer()
-        maskLayer.path = UIBezierPath(roundedRect: momentumView.bounds, byRoundingCorners: [.topLeft, .topRight], cornerRadii: CGSize(width: 20, height: 20)).cgPath
-        momentumView.layer.mask = maskLayer
-        
-    }
-    
     @objc private func panned(recognizer: UIPanGestureRecognizer) {
         switch recognizer.state {
         case .began:
@@ -80,9 +85,10 @@ class MomentumInterfaceViewController: InterfaceViewController {
             if isOpen { fraction *= -1 }
             if animator.isReversed { fraction *= -1 }
             animator.fractionComplete = fraction + animationProgress
+            // todo: rubberbanding
         case .ended, .cancelled:
             let yVelocity = recognizer.velocity(in: momentumView).y
-            let shouldClose = yVelocity > 0
+            let shouldClose = yVelocity > 0 // todo: should use projection instead
             if yVelocity == 0 {
                 animator.continueAnimation(withTimingParameters: nil, durationFactor: 0)
                 break
@@ -101,7 +107,7 @@ class MomentumInterfaceViewController: InterfaceViewController {
                 break
             }
             let relativeVelocity = min(abs(yVelocity) / distanceRemaining, 30)
-            let timingParameters = UISpringTimingParameters(damping: 0.8, response: 0.3, initialVelocity: CGVector(dx: relativeVelocity, dy: 0))
+            let timingParameters = UISpringTimingParameters(damping: 0.8, response: 0.3, initialVelocity: CGVector(dx: relativeVelocity, dy: relativeVelocity))
             let preferredDuration = UIViewPropertyAnimator(duration: 0, timingParameters: timingParameters).duration
             let durationFactor = CGFloat(preferredDuration / animator.duration)
             animator.continueAnimation(withTimingParameters: timingParameters, durationFactor: durationFactor)
