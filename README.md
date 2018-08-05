@@ -1,6 +1,6 @@
 <p align="center"><img src="Resources/repo-banner.png" alt="Fluid Interfaces Title Graphic"></p>
 
-### ⏩ Check out the accompanying blog post for more details: [Building Fluid Interfaces]() ⏪
+### Check out the accompanying blog post for more details: [Building Fluid Interfaces](https://medium.com/@nathangitter/building-fluid-interfaces-ios-swift-9732bb934bf5)
 
 ⭐️ If you found this repo helpful, please star it. Thanks! ⭐️
 
