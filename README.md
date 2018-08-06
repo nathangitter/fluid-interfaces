@@ -92,7 +92,7 @@ A drawer with an open and closed state which has bounciness dependent on the vel
 
 <img src="Resources/momentumdemo.gif" alt="Rewarding Momentum Demo">
 
-[⚙️ Mommentum.swift](FluidInterfaces/FluidInterfaces/Momentum.swift)
+[⚙️ Momentum.swift](FluidInterfaces/FluidInterfaces/Momentum.swift)
 
 [📺 Designing Fluid Interfaces 36:48](https://developer.apple.com/videos/play/wwdc2018/803/?time=2208)
 
