@@ -86,7 +86,7 @@ class AccelerationInterfaceViewController: InterfaceViewController {
     }
     
     /// The number of past velocities to track.
-    private let numberOfVelocities = 7
+    private let numberOfVelocities = 3
     
     /// The array of past velocities.
     private var velocities = [CGFloat]()
@@ -109,19 +109,15 @@ class AccelerationInterfaceViewController: InterfaceViewController {
             velocities = Array(velocities.dropFirst())
             velocities.append(velocity)
         }
-        
-        // enforce minimum velocity and offset
-        if abs(velocity) > 100 || abs(offset) < 50 { return }
-        
-        guard let firstRecordedVelocity = velocities.first else { return }
-        
+      
         // if the majority of the velocity has been lost recetly, we consider the motion to be paused
-        if abs(firstRecordedVelocity - velocity) / abs(firstRecordedVelocity) > 0.9 {
-            pauseLabel.alpha = 1
-            feedbackGenerator.impactOccurred()
-            hasPaused = true
-            velocities.removeAll()
-        }
+        let absoluteVelocity = velocities.reduce(0, { $0 + abs($1)})
+        if  absoluteVelocity < 1 {
+              pauseLabel.alpha = 1
+              feedbackGenerator.impactOccurred()
+              hasPaused = true
+              velocities.removeAll()
+          }
         
     }
     
