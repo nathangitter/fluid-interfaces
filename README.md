@@ -119,5 +119,5 @@ A demo showing how the concepts from the PiP interface can apply to other animat
 ## Author
 You can find me on Twitter [@nathangitter](https://twitter.com/nathangitter)
 
-## Copyright
-© 2018 Nathan Gitter
+## License & Copyright
+© 2018 Nathan Gitter, licensed under Apache-2.0. See LICENSE for more information.
