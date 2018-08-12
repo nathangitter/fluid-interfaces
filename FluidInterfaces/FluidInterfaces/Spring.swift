@@ -85,11 +85,18 @@ class SpringInterfaceViewController: InterfaceViewController {
     private func animateView() {
         self.view.layoutIfNeeded()
 
+        // swap the constraints that align the springView to the left/right - deactivation has to be done in the correct order - when both layout constraints are active at the same time, this creates a layout warning
+        if self.leadingAnchor.isActive {
+            self.leadingAnchor.isActive = false
+            self.trailingAnchor.isActive = true
+        } else {
+            self.trailingAnchor.isActive = false
+            self.leadingAnchor.isActive = true
+        }
+
         let timingParameters = UISpringTimingParameters(damping: dampingRatio, response: frequencyResponse)
         animator = UIViewPropertyAnimator(duration: 0, timingParameters: timingParameters)
         animator.addAnimations {
-            self.leadingAnchor.isActive = !self.leadingAnchor.isActive
-            self.trailingAnchor.isActive = !self.trailingAnchor.isActive
             self.view.layoutIfNeeded()
         }
         animator.addCompletion { _ in self.animateView() }
