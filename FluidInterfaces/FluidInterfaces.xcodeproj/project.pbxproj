@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF3FF11B211C42C300EF8DF4 /* UISpringTimingParameters+DesignParams.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3FF11A211C42C300EF8DF4 /* UISpringTimingParameters+DesignParams.swift */; };
 		D806B89020F8275600740219 /* UIColorExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D806B88F20F8275600740219 /* UIColorExtensions.swift */; };
 		D806B89220F82A3700740219 /* UIViewExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D806B89120F82A3700740219 /* UIViewExtensions.swift */; };
 		D8409D0A20FBDA8100C7DCD2 /* CGPointExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8409D0920FBDA8100C7DCD2 /* CGPointExtensions.swift */; };
@@ -29,6 +30,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		BF3FF11A211C42C300EF8DF4 /* UISpringTimingParameters+DesignParams.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UISpringTimingParameters+DesignParams.swift"; sourceTree = "<group>"; };
 		D806B88F20F8275600740219 /* UIColorExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIColorExtensions.swift; sourceTree = "<group>"; };
 		D806B89120F82A3700740219 /* UIViewExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIViewExtensions.swift; sourceTree = "<group>"; };
 		D8409D0920FBDA8100C7DCD2 /* CGPointExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGPointExtensions.swift; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 				D806B89120F82A3700740219 /* UIViewExtensions.swift */,
 				D806B88F20F8275600740219 /* UIColorExtensions.swift */,
 				D8409D0920FBDA8100C7DCD2 /* CGPointExtensions.swift */,
+				BF3FF11A211C42C300EF8DF4 /* UISpringTimingParameters+DesignParams.swift */,
 				D8757E7520F124BD00D7EB4E /* Main.storyboard */,
 				D8757E7820F124BF00D7EB4E /* Assets.xcassets */,
 				D8757E7A20F124BF00D7EB4E /* LaunchScreen.storyboard */,
@@ -180,6 +183,7 @@
 				D8976AB420F2B3A400E148CB /* InterfaceViewController.swift in Sources */,
 				D806B89220F82A3700740219 /* UIViewExtensions.swift in Sources */,
 				D806B89020F8275600740219 /* UIColorExtensions.swift in Sources */,
+				BF3FF11B211C42C300EF8DF4 /* UISpringTimingParameters+DesignParams.swift in Sources */,
 				D8976ABC20F2D3DC00E148CB /* Spring.swift in Sources */,
 				D8757E7420F124BD00D7EB4E /* MenuViewController.swift in Sources */,
 				D8409D0C20FC010B00C7DCD2 /* GradientView.swift in Sources */,
@@ -269,7 +273,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -323,7 +327,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
@@ -337,9 +341,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PW5ET5HNB2;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = FluidInterfaces/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -356,9 +359,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = PW5ET5HNB2;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = FluidInterfaces/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
