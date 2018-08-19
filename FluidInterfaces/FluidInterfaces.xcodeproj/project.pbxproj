@@ -26,6 +26,7 @@
 		D8976AC020F2D42200E148CB /* Momentum.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8976ABF20F2D42200E148CB /* Momentum.swift */; };
 		D8976AC220F2D44C00E148CB /* Pip.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8976AC120F2D44C00E148CB /* Pip.swift */; };
 		D8976AC620F2D48800E148CB /* Rotation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8976AC520F2D48800E148CB /* Rotation.swift */; };
+		E70E61792129959E00633473 /* SwiftExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70E61782129959E00633473 /* SwiftExtensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +51,7 @@
 		D8976ABF20F2D42200E148CB /* Momentum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Momentum.swift; sourceTree = "<group>"; };
 		D8976AC120F2D44C00E148CB /* Pip.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pip.swift; sourceTree = "<group>"; };
 		D8976AC520F2D48800E148CB /* Rotation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rotation.swift; sourceTree = "<group>"; };
+		E70E61782129959E00633473 /* SwiftExtensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SwiftExtensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 				D806B89120F82A3700740219 /* UIViewExtensions.swift */,
 				D806B88F20F8275600740219 /* UIColorExtensions.swift */,
 				D8409D0920FBDA8100C7DCD2 /* CGPointExtensions.swift */,
+				E70E61782129959E00633473 /* SwiftExtensions.swift */,
 				D8757E7520F124BD00D7EB4E /* Main.storyboard */,
 				D8757E7820F124BF00D7EB4E /* Assets.xcassets */,
 				D8757E7A20F124BF00D7EB4E /* LaunchScreen.storyboard */,
@@ -191,6 +194,7 @@
 				D8976AC620F2D48800E148CB /* Rotation.swift in Sources */,
 				D8976AB220F2B2FA00E148CB /* Interface.swift in Sources */,
 				D8976AB620F2B3D900E148CB /* CalculatorButton.swift in Sources */,
+				E70E61792129959E00633473 /* SwiftExtensions.swift in Sources */,
 				D8976AC220F2D44C00E148CB /* Pip.swift in Sources */,
 				D8976ABA20F2D3B500E148CB /* Rubberbanding.swift in Sources */,
 			);
