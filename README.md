@@ -14,9 +14,7 @@ The goal with this project is to bridge the gap between inspiration and implemen
 
 ### Installation
 
-Download or clone the repo and open the `FluidInterfaces.xcodeproj` file with Xcode 10.
-
-If you are using Xcode 9, switch to the branch named "Xcode9".
+Download or clone the repo and open the `FluidInterfaces.xcodeproj` file with Xcode.
 
 ### Interfaces
 
