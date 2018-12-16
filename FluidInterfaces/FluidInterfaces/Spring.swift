@@ -41,7 +41,7 @@ class SpringInterfaceViewController: InterfaceViewController {
         sliderView.sliderFinishedMovingAction = { self.resetAnimation() }
         return sliderView
     }()
-    
+
     private var dampingRatio: CGFloat = 0.5
     private var frequencyResponse: CGFloat = 1
     
@@ -67,13 +67,16 @@ class SpringInterfaceViewController: InterfaceViewController {
         springView.bottomAnchor.constraint(equalTo: dampingSliderView.topAnchor, constant: -80).isActive = true
         
         animateView()
-        
     }
     
     private var animator = UIViewPropertyAnimator()
+
+	private var dwi: DispatchWorkItem?
     
     /// Repeatedly animates the view using the current `dampingRatio` and `frequencyResponse`.
     private func animateView() {
+		dwi?.cancel()
+
         let timingParameters = UISpringTimingParameters(damping: dampingRatio, response: frequencyResponse)
         animator = UIViewPropertyAnimator(duration: 0, timingParameters: timingParameters)
         animator.addAnimations {
@@ -81,8 +84,13 @@ class SpringInterfaceViewController: InterfaceViewController {
             self.springView.transform = CGAffineTransform(translationX: translation, y: 0)
         }
         animator.addCompletion { _ in
-            self.springView.transform = .identity
-            self.animateView()
+			let dwi = DispatchWorkItem {
+				[weak self] in
+				self?.springView.transform = .identity
+				self?.animateView()
+			}
+			self.dwi = dwi
+			DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: dwi)
         }
         animator.startAnimation()
     }
